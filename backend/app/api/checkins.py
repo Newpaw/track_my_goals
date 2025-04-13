@@ -53,7 +53,7 @@ def create_checkin(
     existing_checkin = session.exec(
         select(CheckIn).where(
             (CheckIn.goal_id == checkin_in.goal_id) & 
-            (CheckIn.date == checkin_in.date)
+            (CheckIn.checkin_date == checkin_in.date)  # TODO: Review checkin_in.date logic
         )
     ).first()
     
@@ -118,7 +118,7 @@ def get_checkins(
     checkins = session.exec(
         select(CheckIn)
         .where(CheckIn.goal_id == goal_id)
-        .order_by(CheckIn.date.desc())
+        .order_by(CheckIn.checkin_date.desc())
     ).all()
     
     return checkins

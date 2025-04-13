@@ -22,9 +22,10 @@ class CheckIn(CheckInBase, table=True):
     """CheckIn database model"""
     id: UUID = Field(default_factory=uuid4, primary_key=True)
     goal_id: UUID = Field(foreign_key="goal.id")
-    date: date = Field(default=None)
+    checkin_date: date = Field(default=None)
     created_at: datetime = Field(default=None)
-    
+    status: float  # Override base class Union for DB compatibility
+
     # Relationships
     goal: "Goal" = Relationship(back_populates="checkins")
 

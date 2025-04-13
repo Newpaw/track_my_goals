@@ -108,3 +108,6 @@ frontend/.idea/
 
 # OS
 frontend/.DS_Store
+
+# DB
+*.db
