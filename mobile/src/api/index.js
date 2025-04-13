@@ -3,11 +3,53 @@ import * as SecureStore from 'expo-secure-store';
 import NetInfo from '@react-native-community/netinfo';
 import mockApiService from '../utils/mockApiService';
 
-// Base URL for the API
-const API_URL = 'http://localhost:8000';
+// API URL Configuration based on platform and environment
+import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
-// Flag to use mock API for testing
-const USE_MOCK_API = true; // Set to false to use real API
+// Determine the appropriate API URL based on platform
+const getApiUrl = () => {
+  // Check if we have a custom API URL in the app config (app.json)
+  const customApiUrl = Constants.expoConfig?.extra?.apiUrl;
+  if (customApiUrl) return customApiUrl;
+  
+  // Platform-specific defaults
+  if (Platform.OS === 'ios') {
+    // iOS simulator can use localhost
+    return 'http://localhost:8000';
+  } else if (Platform.OS === 'android') {
+    // Android emulator needs the special IP for localhost
+    return 'http://10.0.2.2:8000';
+  } else {
+    // Web or other platforms
+    return 'http://localhost:8000';
+  }
+};
+
+// Base URL for the API
+const API_URL = getApiUrl();
+
+// Flag to use mock API - configurable via environment or development toggle
+// Priority: 1. Constants from app config, 2. Development toggle (if enabled)
+const getUseMockApi = () => {
+  // Check if we have a mock API setting in the app config
+  const mockApiSetting = Constants.expoConfig?.extra?.useMockApi;
+  if (mockApiSetting !== undefined) return mockApiSetting === true;
+  
+  // Default to false for production, true for development
+  return __DEV__ ? true : false;
+};
+
+const USE_MOCK_API = getUseMockApi();
+
+// Development toggle for mock API (can be implemented in settings/profile screen)
+export const toggleMockApi = async (value) => {
+  // This could be persisted to storage for user preference
+  // For now, we'll just log it as this would require app restart
+  console.log(`Mock API ${value ? 'enabled' : 'disabled'}`);
+  // In a real implementation, you would save this to storage and
+  // reload the app or update the configuration
+};
 
 // Create an axios instance with default config
 const apiClient = axios.create({

@@ -25,6 +25,10 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "apiUrl": null,
+      "useMockApi": null
     }
   }
 }
