@@ -1,0 +1,110 @@
+# === PYTHON BACKEND IGNORE ===
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+lib/
+lib64/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables
+*.env
+*.env.*
+
+# Test / coverage
+.coverage
+.coverage.*
+.cache
+.tox/
+.nox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+htmlcov/
+.junit.xml
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDEs / Editors
+.vscode/
+.idea/
+.ropeproject/
+.spyderproject
+.spyproject
+
+# PyInstaller
+*.spec
+cython_debug/
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.history/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# === REACT FRONTEND IGNORE ===
+
+# node modules
+frontend/node_modules/
+**/node_modules/
+
+# build artifacts
+frontend/build/
+frontend/.next/         # If using Next.js
+frontend/.cache/        # e.g. Gatsby or other static site generators
+frontend/.parcel-cache/ # Parcel
+
+# dotenv for frontend
+frontend/.env
+frontend/.env.*
+
+# log files
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# misc
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+
+# IDEs / Editors
+frontend/.vscode/
+frontend/.idea/
+
+# OS
+frontend/.DS_Store

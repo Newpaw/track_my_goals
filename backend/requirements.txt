@@ -1,0 +1,18 @@
+# FastAPI framework
+fastapi
+uvicorn
+
+# Database
+sqlalchemy>=2.0.0
+# alembic==1.10.3
+pydantic>=2.0.0  # Using Pydantic v2
+pydantic-settings>=2.0.0  # For settings management
+
+# Security
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart>=0.0.6,<0.0.7  # For OAuth2 form handling
+
+# Utilities
+python-dotenv>=1.0.0,<1.1.0
+email-validator>=2.0.0,<2.1.0
